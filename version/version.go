@@ -1,7 +1,5 @@
-/*
- Copyright (c) 2015 elarasu. All rights reserved.
- Licensed under the Apache License, Version 2.0 (the "License");
-*/
+// Copyright (c) 2015 elarasu. All rights reserved.
+// Licensed under the Apache License, Version 2.0 (the "License");
 
 // version - first step towards semver package naming.
 package version
