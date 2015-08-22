@@ -19,14 +19,16 @@ func TestIsJson(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for i := 0; i < len(a); i++ {
-		assert.False(IsJson(a[i]), a[i])
+		r, _ := IsJson(a[i])
+		assert.False(r, a[i])
 	}
 	b := [...]string{"  {}",
 		`{"a":["x","y"]}`,
 		`   ["one"]`,
 	}
 	for i := 0; i < len(b); i++ {
-		assert.True(IsJson(b[i]), b[i])
+		r, _ := IsJson(b[i])
+		assert.True(r, b[i])
 	}
 }
 
@@ -50,14 +52,16 @@ func TestIsJsonRpc(t *testing.T) {
 	}
 	assert := assert.New(t)
 	for i := 0; i < len(a); i++ {
-		assert.False(IsJsonRpc(a[i]), a[i])
+		r, _ := IsJsonRpc(a[i])
+		assert.False(r, a[i])
 	}
 	b := [...]string{
 		`{"jsonrpc":["x","y"]}`,
 		`{"one":1, "two":[1,2,3],"jsonrpc":"hello"}`,
 	}
 	for i := 0; i < len(b); i++ {
-		assert.True(IsJsonRpc(b[i]), b[i])
+		r, _ := IsJsonRpc(b[i])
+		assert.True(r, b[i])
 	}
 }
 
