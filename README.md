@@ -5,7 +5,7 @@ common utility wrappers for golang
 ## to run tests
 
 ```sh
-dep init
+go mod download
 go test github.com/elarasu/basis/version
 ```
 
