@@ -1,11 +1,12 @@
 package log
 
 import (
+	"os"
+	"path"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
-	"os"
-	"path"
 )
 
 // Configuration for logging
@@ -35,6 +36,11 @@ type Config struct {
 // DefaultZapLogger is the default logger instance that should be used to log
 // It's assigned a default value here for tests (which do not call log.Configure())
 var DefaultZapLogger = newZapLogger(false, os.Stdout)
+
+// Get the suger API for convenience
+func Sugar() *zap.SugaredLogger {
+	return DefaultZapLogger.Sugar()
+}
 
 // Debug Log a message at the debug level. Messages include any context that's
 // accumulated on the logger, as well as any fields added at the log site.
